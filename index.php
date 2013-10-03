@@ -7,7 +7,7 @@ include ("conexao_bd.php");
 
         <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-        <title>Cosmetic - Modern Beauty Shop Template</title>
+        <title>Clube da Mulher</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,700,600,800' rel='stylesheet' type='text/css' />
@@ -127,6 +127,7 @@ include ("conexao_bd.php");
                                 </ul>
                                 <ul class="inline">
                                     <li><a href="contact.php">Contato</a></li>
+									<li id="divLogout" style="display:none;"><a href="#">Sair</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -146,7 +147,6 @@ include ("conexao_bd.php");
                             <div class="top-menu cart-menu">
                                 <ul class="inline">
                                     <li id="info">Olá Visitante!</li>
-									<li id="divLogout" style="display:none;"><a href="#">Sair</a></li>
                                     <li>
                                     
                                         <!--Checkout-->
