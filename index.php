@@ -23,6 +23,7 @@ include ("conexao_bd.php");
         
         <![endif]-->
         <link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/jquery.fancybox.css" media="screen"/>
         
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
@@ -35,6 +36,8 @@ include ("conexao_bd.php");
        
         <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
     
+		<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+        <script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
        
 
 
@@ -52,7 +55,7 @@ include ("conexao_bd.php");
     FB.init({
       appId      : '678613135484178', // App ID
 //      channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-      status     : true, // check login status
+      status     : false, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
     });
@@ -110,6 +113,47 @@ include ("conexao_bd.php");
 				$('#divLogout').hide();
     		});
 		}
+	
+	
+jQuery(document).ready(function() {
+
+$("#cadastrese").fancybox({
+	'scrolling'		: 'no',
+	'titleShow'		: false,
+	'beforeClose'		: function() {
+	    $("#login_error").hide();
+	}
+});
+			
+$('#a_cadastro').click(function(){
+   document.location.href='checkout-1.php';
+   return false;
+})
+
+
+$("#login_form").bind("submit", function() {
+	if ($("#login_name").val().length < 1 || $("#login_pass").val().length < 1) {
+	    $("#login_error").show();
+	    $.fancybox.resize();
+	    return false;
+	}
+
+	$.fancybox.showActivity();
+
+	$.ajax({
+		type	: "POST",
+		cache	: false,
+		url		: "checkout-1.php",
+		data	: $(this).serializeArray(),
+		success: function(data) {
+			$.fancybox(data);
+		}
+	});
+
+	return false;
+});
+});
+		
 </script>
     
 
@@ -122,12 +166,12 @@ include ("conexao_bd.php");
                                 <ul class="inline">
                                     <li><a href="checkout-1.php">Revista</a></li>
                                     <li id="divAlterarDados" style="display:none;"><a href="checkout-1.php">Alterar dados</a></li>
-                                    <li id="divLogin"><fb:login-button scope="email"></fb:login-button></li>
-                                    <li><a href="checkout-1.php">Cadastre-se</a></li>
+                                    <li id="divLogin"><a id="cadastrese" class="fancybox" href="#formLogin">Login</a></li>
+                                    <li><a id="a_cadastro" href="http://www.clubedamulher.com.br">Cadastre-se</a></li>
                                 </ul>
                                 <ul class="inline">
                                     <li><a href="contact.php">Contato</a></li>
-									<li id="divLogout" style="display:none;"><a href="#">Sair</a></li>
+									<li id="divLogout" style="display:none;"><a href="">Sair</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -514,15 +558,14 @@ include ("conexao_bd.php");
                 <div class="container">
                     <div class="copyright pull-left">
                         <p>
-                            <strong>© COSMETICO 2013</strong>. All rights reserved.<br />
-                            Designed by <a href="http://themeforest.net/user/bcube?ref=bcube">Michael Kowalski</a> | Coded by <a href="http://themeforest.net/user/leamino?ref=leamino">LeAmino</a>
+                            <strong>© Clube da Mulher 2013</strong>. Todos os direitos reservados.<br />
                         </p>
                     </div>
                     <div class="copyright-links pull-right">
                         <ul class="inline">
-                            <li><a href="#">privacy policy</a></li>
-                            <li><a href="#">terms & conditions</a></li>
-                            <li><a href="#">site map</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                            <li><a href="#">Termos e Condições</a></li>
+                            <li><a href="#">Mapa do Site</a></li>
                         </ul>
                     </div>
                 </div>
@@ -530,6 +573,33 @@ include ("conexao_bd.php");
 
         </div>
 
+<!-- Tela de Login -->
+
+<div id="formLogin" style="display:none">
+	<form id="login_form" action="javascript:return false;" method="post">
+	    <div style="display:none" id="login_error">Please, enter data</div>
+		<p>
+			<label for="login_name">Login: </label>
+			<input type="text" id="login_name" name="login_name" size="30" />
+		</p>
+		<p>
+			<label for="login_pass">Password: </label>
+			<input type="password" id="login_pass" name="login_pass" size="30" />
+		</p>
+		<p>
+			<input type="submit" value="Login" />
+		</p>
+		<p>
+			ou
+		</p>
+		<p>
+			<fb:login-button scope="email">Entre com o Facebook</fb:login-button>
+		</p>
+		<p>
+		    <em>Leave empty so see resizing</em>
+		</p>
+	</form>
+</div>
 
 
     </body>
