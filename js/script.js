@@ -1,4 +1,4 @@
-var zoom = 15;
+﻿var zoom = 15;
 var latitude = 41.040585;
 
 var longitude = 28.970257;
@@ -141,6 +141,7 @@ if($('#clients-carousel').length>0){
         var dest = $($(this).attr('href'));
         $('.products-holder.active').stop(true, true).fadeOut('slow', function() {
             dest.stop(true, true).fadeIn('slow');
+			carregaProdutos($(dest).attr('id'));
         });
 
     });
@@ -157,6 +158,10 @@ if($('#clients-carousel').length>0){
 
     $('a.load-more').click(function(e) {
         e.preventDefault();
+		
+        var dest = $(this).attr('id');
+		
+		carregaProdutos(dest);
     });
     if($(".chosen-select").length>0){
         $(".chosen-select").chosen({disable_search_threshold: 10});

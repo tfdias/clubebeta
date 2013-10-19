@@ -1,6 +1,3 @@
-<?php
-include ("conexao_bd.php"); 
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,229 +38,22 @@ include ("conexao_bd.php");
        
 
 
-        <script type="text/javascript" src="js/script.js"></script>
-        
+		<script src="js/waypoints.min.js"></script> 
+		<script src="js/waypoints-sticky.js"></script> 
+   		<script type="text/javascript" src="js/fb_cdm.js"></script> 
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+	</head>
     <body>
     
 <div id="fb-root"></div>
-<script>
-
-  // Additional JS functions here
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '678613135484178', // App ID
-//      channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-      status     : false, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
- 
-            // Função que será chamada automaticamente quando hover mudança no status da sessão do usuário
-            // que irá acontecer quando ele clicar no botão Entrar
-            FB.Event.subscribe('auth.authResponseChange', function(response) {
-                //Se o usuário estiver logado no facebook e já deu as permissões para seu aplicativo o status será connected
-                if (response.status === 'connected') {
-                    // Executa a função usuarioConectado().
-                    usuarioConectado();
-                }  else {
-					$('#divLogout').hide();
-					$('#divAlterarDados').hide();
-				}
-            });
- 
-  };
- 
-  // Load the SDK asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document));
-  
-          // Função de exemplo que é executada quando o usuário esta logado e já deu as permissões para o aplicativo.
-        function usuarioConectado() {
-            // Com a função FB.api, é possível fazer chamadas para o Graph API.
-            // Usando o parâmetro /me , você pode solicitar informações do usuário conectado.
-            FB.api('/me', function(response) {
-                // Usando jQuery, será exibido no paragrafo com id info as informações abaixo, capturdas com o FB.api.
-				<!--   '<br>Email: '+response.email + -->
-                <!--$('#foto').html('<img src="https://graph.facebook.com/'+response.username+'/picture" alt="'+response.name+'" />');-->
-                $('#info').html(response.name);
-				$('#divLogin').hide();
-				$('#divAlterarDados').show();
-				$('#divLogout').show();
-				
-				$("#divLogout").click(function(){
-					logoutUsuario();
-         		});
-            });
-        }
-
-		//Realiza o loggout do usuário.
-        function logoutUsuario() {
-
-			FB.logout(function(response) {
-				$('#info').html('Olá Visitante!');
-				$('#divLogin').show();
-				$('#divAlterarDados').hide();
-				$('#divLogout').hide();
-    		});
-		}
-	
-	
-jQuery(document).ready(function() {
-
-$("#cadastrese").fancybox({
-	'scrolling'		: 'no',
-	'titleShow'		: false,
-	'beforeClose'		: function() {
-	    $("#login_error").hide();
-	}
-});
-			
-$('#a_cadastro').click(function(){
-   document.location.href='checkout-1.php';
-   return false;
-})
-
-
-$("#login_form").bind("submit", function() {
-	if ($("#login_name").val().length < 1 || $("#login_pass").val().length < 1) {
-	    $("#login_error").show();
-	    $.fancybox.resize();
-	    return false;
-	}
-
-	$.fancybox.showActivity();
-
-	$.ajax({
-		type	: "POST",
-		cache	: false,
-		url		: "checkout-1.php",
-		data	: $(this).serializeArray(),
-		success: function(data) {
-			$.fancybox(data);
-		}
-	});
-
-	return false;
-});
-});
-		
-</script>
-    
-
         <div class="wrapper">
-            <section class="section-head">
-                <div class="container">
-                    <div class="row-fluid top-row">
-              
-                        <div class="span5">
-                            <div class="logo">
-                                <span class="icon">
-                                    <img alt="" src="images/logo.png" />
-                                </span>
-                                <span class="text">
-                                    <a href="index.php">Clube<span> da </span>Mulher</a>
-                                </span>
-                            </div>
-                        </div>
-              
-                        <div class="span7">
-                             <div class="top-menu">
-                                <ul class="inline">
-                                    <li><a href="checkout-1.php">Revista</a></li>
-                                    <li id="divAlterarDados" style="display:none;"><a href="checkout-1.php">Alterar dados</a></li>
-                                    <li><a href="contact.php">Contato</a></li>
-                                    <li id="divLogin"><a id="cadastrese" class="fancybox" href="#formLogin">Login</a></li>
-                                    <li><a id="a_cadastro" href="http://www.clubedamulher.com.br">Cadastre-se</a></li>
-                                    <li id="info">Olááá Amiga!</li>
-									<li id="divLogout" style="display:none;"><a href="">Sair</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+		<!-- Início Cabeçalho -->
+           
+			<?php include ('cabecalho.php') ?>
 
-                <div class="top-categories">
-                    <div class="container">
-                        <div class="row-fluid">
-                            <div class="span9">
-                                <ul class="inline">
-                                    <li>
-                                        <a href="products-grid.php">face</a>
-                                    </li>
-                                    <li><a href="products-grid.php">body</a></li>
-                                    <li><a href="products-grid.php">make up</a></li>
-
-
-                                    <li><a href="products-grid.php">hairs</a></li>
-                                    <li><a href="products-grid.php">perfumes</a></li>
-                                    <li><a href="products-grid.php">gifts</a></li>
-                                    <li><a href="products-grid.php">brands</a></li>
-                                    <li><a href="products-grid.php">must have</a></li>
-
-                                </ul>
-                            </div>
-                            <div class="span3">
-                                    <!-- Início Carrinho -->
-                                        <!--Checkout-->
-                                        <div class="basket">
-                                        	<!--Total de Itens no Checkout-->
-                                            <div class="basket-item-count">
-                                                3
-                                            </div>
-                                            <!--Total dos Produtos no Checkout-->
-                                            <div class="total-price-basket">
-                                                $0.00
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="dropdown-toggle" data-hover="dropdown" href="#">
-                                                    <img alt="basket" src="images/icon-basket.png" />
-                                                </a>
-                                                <ul class="dropdown-menu">
-                                                    <!--Exibição dos Produtos no Checkout-->
-                                                    <li>
-                                                        <div class="basket-item">
-                                                            <div class="row-fluid">
-                                                                <div class="span4">
-                                                                    <div class="thumb">
-                                                                        <img alt="" src="img_produtos/<?PHP print $foto_exibicao; ?>" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="span8">
-                                                                    <div class="title"><?PHP print $descricao; ?></div>
-                                                                    <div class="price"><?PHP print $productprice; ?></div>
-                                                                </div>
-                                                            </div>
-                                                            <a class="close-btn" href="#"></a>
-                                                        </div>
-                                                    </li>
-                                                    <li class="checkout">
-                                                        <a href="shopping-cart.php" class="cusmo-btn">checkout</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            
-                                        </div>
-                                    <!-- Fim do Carrinho -->
-                            
-                                <!--div class="search-field-holder">
-                                    <form />
-                                        <input class="span12" type="text" placeholder="Type and hit enter" />
-                                        <i class="icon-search"></i>
-                                    </form>
-                                </div-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+		<!-- Fim Cabeçalho -->
             <section id="home" class="home-slider">
                 <div class="container">
                     <div class="flexslider">
@@ -320,138 +110,40 @@ $("#login_form").bind("submit", function() {
                 <div class="container">
                     <div class="controls-holder nav-tabs">
                         <ul class="inline">
-                            <li class="active"><a data-toggle="tab" href="#hot-products">Hot products</a></li>
-                            <li><a data-toggle="tab" href="#new-products">New products</a></li>
-                            <li><a data-toggle="tab" href="#best-sellers">Best sellers</a></li>
+                            <li class="active"><a data-toggle="tab" href="#hot-products">Kits Especiais</a></li>
+                            <li><a data-toggle="tab" href="#new-products">Novos Produtos</a></li>
+                            <li><a data-toggle="tab" href="#best-sellers">Mais Vendidos</a></li>
                         </ul>
                     </div>
-                    
-					<?php 
-                    
-                    //Inicia o Loop para pegar os produtos
-                    $sqlteam = "SELECT * FROM produtos WHERE ativo = 1"; 
-                    $resultsteam = mysql_query($sqlteam); 
-                    while ($sqlrow = mysql_fetch_array($resultsteam)){ 
-                            $cardid = $sqlrow['id'];
-                            $titulo = $sqlrow['marca'];
-                            $foto_exibicao = $sqlrow['foto_exibicao'];
-                            $productprice = $sqlrow['valor'];
-                            $preco = $sqlrow['valor'];
-                            $preco = number_format($preco,2,',','.');
-                            $descricao = $sqlrow['descricao'];
-                    ?>      
-                    
                     <div class="tab-content">
                         <div id="hot-products" class="products-holder active tab-pane ">
-							
                             <!--Div que contém as colunas de exibição dos produtos-->
-                            <div class="row-fluid">
-                            	
-                            <!--Div que contém a imagem e o preço dos produtos-->  
-                            <?php
-								
-							   $columncount = 0;	
-								
-							   $dynamicList .= '<div class="span3" style="margin-left:0px;">
-													<div class="product-item">
-														<a href="products-page.php">
-															<img alt="" src="../thumbs/' . $foto_exibicao . '" />
-															<h1>' . $titulo . '</h1>
-														</a>
-														<div class="tag-line">
-															<!--<span>yellow diamond</span>-->
-															<span>' . $descricao . '</span>
-														</div>
-														<div class="price">
-														 ' . $productprice . '
-														</div>
-														<a class="cusmo-btn add-button" href="#">Adicionar</a>
-													</div>
-												</div>';					
-								
-						//Quando chegar a 3 produtos exibidos, quebra a linha.
-						if($columncount == 4){
-						  $dynamicList .= '\n';
-						  $columncount = 0;
-						}else{
-						  $columncount++; 
-					   }
-									
-					} //Encerra o while
-									
-					echo $dynamicList; //Exibe os produtos										
-								
-					?>
-
+                            <div id="hot-products-row" class="row-fluid"></div>
                             <div class="load-more-holder">
-                                <a href="#hot-products" class="load-more">
+                                <a id="hot-products-load-more" href="#hot-products-load" class="load-more">
                                     load more hot products
                                 </a>
                             </div>
+						</div>
 
-                        </div>
-
-                        <div id="new-products" class="products-holder  tab-pane ">
+                        <div id="new-products" class="products-holder tab-pane">
      
                             <!--Div que contém as colunas de exibição dos produtos-->
-                            <div class="row-fluid">
-                            
-                                <!--Div que contém a imagem e o preço dos produtos-->
-                                <div class="span3">
-                                    <div class="product-item">
-                                        <a href="products-page.php">
-                                            <img alt="" src="images/p9.jpg" />
-                                            <h1>blue</h1>
-                                        </a>
-                                        <div class="tag-line">
-                                            <span>yellow diamond</span>
-                                            <span>toilet water spray</span>
-                                        </div>
-                                        <div class="price">
-                                            $170.00
-                                        </div>
-                                        <a class="cusmo-btn add-button" href="#">add to cart</a>
-                                    </div>
-                                </div><!--Encerra a exibição dos produtos-->
-
-                            </div><!--Encerra a coluna dos produtos-->
-                            
-                            <div class="load-more-holder">
-                                <a href="#new-products" class="load-more">
-                                    load more hot products
-                                </a>
+                            <div id="new-products-row" class="row-fluid"></div>
+   	                        <div class="load-more-holder">
+	                                <a id="new-products-load-more" href="#new-products" class="load-more">
+                                    	load more hot products
+                                	</a>
                             </div>
-                        </div>
                     </div>
 
                     <div id="best-sellers" class="products-holder  tab-pane ">
 
 	                    <!--Div que contém as colunas de exibição dos produtos-->
-                        <div class="row-fluid">
-                        
-	                        <!--Div que contém a imagem e o preço dos produtos-->
-                            <div class="span3">
-                                <div class="product-item">
-                                    <a href="products-page.php">
-                                        <img alt="" src="images/p5.jpg" />
-                                        <h1>versace</h1>
-                                    </a>
-                                    <div class="tag-line">
-                                        <span>yellow diamond</span>
-                                        <span>toilet water spray</span>
-                                    </div>
-                                    <div class="price">
-                                        $270.00
-                                    </div>
-                                    <a class="cusmo-btn add-button" href="#">add to cart</a>
-                                </div><!--Encerra a exibição dos produtos-->
-                                
-                            </div><!--Encerra a coluna dos produtos-->
-                            
-                        </div>
+                        <div id="best-sellers-products-row" class="row-fluid"></div>
                         
                         <div class="load-more-holder">
-                            <a href="#best-sellers" class="load-more">
+                            <a id="best-sellers-load-more" href="#best-sellers" class="load-more">
                                 load more hot products
                             </a>
                         </div>
@@ -487,111 +179,64 @@ $("#login_form").bind("submit", function() {
                 </div>
             </section>
 
-            <section class="section-footer">
-                <div class="container">
-                    <div class="row-fluid">
-                        <div class="span3">
-                            <div class="footer-links-holder">
-                                <h2>informations</h2>
-                                <ul>
-                                    <li><a href="#">our blog</a></li> 
-                                    <li><a href="#">about our shop</a></li> 
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">privacy policy</a></li>
-                                    <li><a href="#">delivery informations</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="span3">
-                            <div class="footer-links-holder">
-                                <h2>customer care</h2>
-                                <ul>
-                                    <li><a href="#">contact us</a></li> 
-                                    <li><a href="#">site map</a></li> 
-                                    <li><a href="#">top sales & bestsellers</a></li>
-                                    <li><a href="#">gift vouchers</a></li>
-                                    <li><a href="#">best sellers</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="span3">
-                            <div class="footer-links-holder">
-                                <h2>your account</h2>
-                                <ul>
-                                    <li><a href="#">order status</a></li> 
-                                    <li><a href="#">my wishlist</a></li> 
-                                    <li><a href="#">delivery address</a></li>
-                                    <li><a href="#">order history</a></li>
-                                    <li><a href="#">newsletter</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="span3">
-                            <div class="footer-links-holder">
-                                <h2>get in touch</h2>
-                                <p>
-                                    Cosmetico Shop<br />
-                                    Good Town 122, Beaty Centre<br />
-                                    (011) 212 222 22
-                                </p>
-                                <ul class="inline social-icons">
-                                    <li><a href="#" class="icon-facebook"></a></li> 
-                                    <li><a href="#" class="icon-google-plus"></a></li> 
-                                    <li><a href="#" class="icon-rss"></a></li>
-
-                                    <li><a href="#" class="icon-linkedin"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="section-copyright">
-                <div class="container">
-                    <div class="copyright pull-left">
-                        <p>
-                            <strong>© Clube da Mulher 2013</strong>. Todos os direitos reservados.<br />
-                        </p>
-                    </div>
-                    <div class="copyright-links pull-right">
-                        <ul class="inline">
-                            <li><a href="#">Política de Privacidade</a></li>
-                            <li><a href="#">Termos e Condições</a></li>
-                            <li><a href="#">Mapa do Site</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+			<!-- Início Rodapé -->
+			<?php include ("rodape.php"); ?>
+			<!-- Fim Rodapé -->
 
         </div>
+		<!-- Início Tela de Login -->
+		<?php include ("form_login.php"); ?>
+		<!-- Fim Tela de Login -->
+        
+		<script type="text/javascript" src="js/produtos.js"></script>
+        <script type="text/javascript" src="js/script.js"></script> 
+        
+<script>
+	
+	
+jQuery(document).ready(function() {
+								
+carregaProdutos('hot-products');
+								
+$("#cadastrese").fancybox({
+	'scrolling'		: 'no',
+	'titleShow'		: false,
+	'beforeClose'		: function() {
+	    $("#login_error").hide();
+	}
+});
+			
+$('#a_cadastro').click(function(){
+   document.location.href='form_cadastro.php';
+   return false;
+})
 
-<!-- Tela de Login -->
 
-<div id="formLogin" style="display:none">
-	<form id="login_form" action="javascript:return false;" method="post">
-	    <div style="display:none" id="login_error">Por favor, preencha o nome de usuária e senha</div>
-		<p>
-			<label for="login_name">Nome de usuária: </label>
-			<input type="text" id="login_name" name="login_name" size="30" />
-		</p>
-		<p>
-			<label for="login_pass">Senha: </label>
-			<input type="password" id="login_pass" name="login_pass" size="30" />
-		</p>
-		<p>
-			<input type="submit" value="Entrar" />
-		</p>
-		<p>
-			ou
-		</p>
-		<p>
-			<fb:login-button scope="email">Entrar com o Facebook</fb:login-button>
-		</p>
-	</form>
-</div>
+$("#login_form").bind("submit", function() {
+	if ($("#login_name").val().length < 1 || $("#login_pass").val().length < 1) {
+	    $("#login_error").show();
+	    $.fancybox.resize();
+	    return false;
+	}
 
+	$.fancybox.showActivity();
 
+	$.ajax({
+		type	: "POST",
+		cache	: false,
+		url		: "checkout-1.php",
+		data	: $(this).serializeArray(),
+		success: function(data) {
+			$.fancybox(data);
+		}
+	});
+
+	return false;
+});
+});
+		
+</script>
+        
     </body>
-
 
 </html>

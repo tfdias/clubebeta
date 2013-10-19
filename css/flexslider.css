@@ -71,10 +71,10 @@ html[xmlns] .slides {display: block;}
     font-family: fontawesome;
 }
 .home-slider .flex-direction-nav .flex-next:after{
-    content: "ï„…";
+    content: "›";
 }
 .home-slider .flex-direction-nav .flex-prev:after{
-    content: "ï„„";
+    content: "‹";
 }
 .flex-direction-nav a{
     position: absolute;

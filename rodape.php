@@ -3,7 +3,7 @@
                     <div class="row-fluid">
                         <div class="span3">
                             <div class="footer-links-holder">
-                                <h2>informations</h2>
+                                <h2>Sobre nós</h2>
                                 <ul>
                                     <li><a href="#">our blog</a></li> 
                                     <li><a href="#">about our shop</a></li> 
@@ -39,18 +39,18 @@
                         </div>
                         <div class="span3">
                             <div class="footer-links-holder">
-                                <h2>get in touch</h2>
+                                <h2>Onde estamos</h2>
                                 <p>
                                     Cosmetico Shop<br />
                                     Good Town 122, Beaty Centre<br />
                                     (011) 212 222 22
                                 </p>
                                 <ul class="inline social-icons">
-                                    <li><a href="#" class="icon-facebook"></a></li> 
-                                    <li><a href="#" class="icon-google-plus"></a></li> 
-                                    <li><a href="#" class="icon-rss"></a></li>
+                                    <li><a href="https://www.facebook.com/assineclubedamulher" class="icon-facebook"></a></li> 
+                                    <!--li><a href="#" class="icon-google-plus"></a></li--> 
+                                    <!--li><a href="#" class="icon-rss"></a></li-->
 
-                                    <li><a href="#" class="icon-linkedin"></a></li>
+                                    <li><a href="http://www.linkedin.com/company/clube-da-mulher" class="icon-linkedin"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -72,4 +72,11 @@
                         </ul>
                     </div>
                 </div>
+                
+		<script type="text/javascript"> 
+			$(document).ready(function() { 
+				$('.my-sticky-element').waypoint('sticky'); 
+			}); 
+		</script>
+                
             </section>

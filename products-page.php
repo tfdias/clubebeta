@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
 
@@ -28,186 +28,22 @@
        
 
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+		<script src="js/waypoints.min.js"></script> 
+		<script src="js/waypoints-sticky.js"></script> 
+   		<script type="text/javascript" src="js/fb_cdm.js"></script> 
+    
+    </head>
+    
     <body>
-
+<div id="fb-root"></div>
 
 
         <div class="wrapper">
-            <section class="section-head">
-                <div class="container">
-                    <div class="row-fluid top-row">
-                        <div class="span4">
-                             <div class="top-menu">
-                                <ul class="inline">
-                                    <li>
-                                        <a href="shopping-cart.php">checkout</a>
-                                    </li>
-                                    <li><a href="checkout-1.php">login</a></li>
-                                    <li><a href="checkout-1.php">register</a></li>
-
-
-                                    <li><a href="contact.php">contact</a></li>
-
-                                </ul>
-
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <div class="logo">
-                                <span class="icon">
-                                    <img alt="" src="images/logo.png" />
-                                </span>
-                                <span class="text">
-                                    <a href="index.php">Cosmeti<span>co</span></a>
-                                </span>
-                            </div>
-
-
-
-
-                        </div>
-
-                        <div class="span4">
-                            <div class="top-menu cart-menu">
-                                <ul class="inline">
-                                    <li>
-                                        <a href="#">my wishlist ( 0 ) </a>
-                                    </li>
-                                    <li>
-
-                                        <div class="doviz-dropdown">
-                                            <a class=" dropdown-toggle" data-hover="dropdown" href="#">
-                                                USD <i class="icon-caret-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li><a data-value="TRY">TRY</a></li>
-                                                <li><a data-value="EUR">EUR</a></li>
-                                                <li><a data-value="GBP">GBP</a></li>
-                                                <li><a data-value="CAD">CAD</a></li>
-                                                <li><a data-value="DKK">DKK</a></li>
-                                                <li><a data-value="SEK">SEK</a></li>
-                                                <li><a data-value="CHF">CHF</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="basket">
-                                            <div class="basket-item-count">
-                                                3
-                                            </div>
-                                            <div class="total-price-basket">
-                                                $0.00
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="dropdown-toggle" data-hover="dropdown" href="#">
-                                                    <img alt="basket" src="images/icon-basket.png" />
-                                                </a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <div class="basket-item">
-                                                            <div class="row-fluid">
-                                                                <div class="span4">
-                                                                    <div class="thumb">
-                                                                        <img alt="" src="images/p1.jpg" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="span8">
-                                                                    <div class="title">Blueberry</div>
-                                                                    <div class="price">$270.00</div>
-                                                                </div>
-                                                            </div>
-                                                            <a class="close-btn" href="#"></a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="basket-item">
-                                                            <div class="row-fluid">
-                                                                <div class="span4">
-                                                                    <div class="thumb">
-                                                                        <img alt="" src="images/p2.jpg" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="span8">
-                                                                    <div class="title">Versache</div>
-                                                                    <div class="price">$120.00</div>
-                                                                </div>
-                                                            </div>
-                                                            <a class="close-btn" href="#"></a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="basket-item">
-                                                            <div class="row-fluid">
-                                                                <div class="span4">
-                                                                    <div class="thumb">
-                                                                        <img alt="" src="images/p3.jpg" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="span8">
-                                                                    <div class="title">Dark Shadow</div>
-                                                                    <div class="price">$99.99</div>
-                                                                </div>
-                                                            </div>
-                                                            <a class="close-btn" href="#"></a>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="checkout">
-                                                        <a href="shopping-cart.php" class="cusmo-btn">checkout</a>
-                                                    </li>
-                                                </ul>
-
-                                            </div>
-
-                                        </div>
-                                    </li>
-
-                                </ul>
-
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <div class="top-categories">
-                    <div class="container">
-                        <div class="row-fluid">
-                            <div class="span9">
-                                <ul class="inline">
-                                    <li class="active">
-                                        <a href="products-grid.php">face</a>
-                                    </li>
-                                    <li><a href="products-grid.php">body</a></li>
-                                    <li><a href="products-grid.php">make up</a></li>
-
-
-                                    <li><a href="products-grid.php">hairs</a></li>
-                                    <li><a href="products-grid.php">perfumes</a></li>
-                                    <li><a href="products-grid.php">gifts</a></li>
-                                    <li><a href="products-grid.php">brands</a></li>
-                                    <li><a href="products-grid.php">must have</a></li>
-
-                                </ul>
-                            </div>
-                            <div class="span3">
-                                <div class="search-field-holder">
-                                    <form />
-                                        <input class="span12" type="text" placeholder="Type and hit enter" />
-                                        <i class="icon-search"></i>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="breadcrumb-holder">
+            <?php include ('cabecalho.php') ?>
+            <?php include ('menu-categorias.php') ?>
+				<div class="breadcrumb-holder">
                     <div class="container">
                         <ul class="inline bcrumb">
                             <li>
@@ -895,6 +731,54 @@
         <script type="text/javascript" src="js/bootstrap-slider.js"></script>
        
         <script type="text/javascript" src="js/script.js"></script>
+        
+		<script type="text/javascript" src="js/produtos.js"></script>
+        <script type="text/javascript" src="js/script.js"></script> 
+        
+<script>        
+jQuery(document).ready(function() {
+								
+carregaProdutos('hot-products');
+								
+$("#cadastrese").fancybox({
+	'scrolling'		: 'no',
+	'titleShow'		: false,
+	'beforeClose'		: function() {
+	    $("#login_error").hide();
+	}
+});
+			
+$('#a_cadastro').click(function(){
+   document.location.href='form_cadastro.php';
+   return false;
+})
+
+
+$("#login_form").bind("submit", function() {
+	if ($("#login_name").val().length < 1 || $("#login_pass").val().length < 1) {
+	    $("#login_error").show();
+	    $.fancybox.resize();
+	    return false;
+	}
+
+	$.fancybox.showActivity();
+
+	$.ajax({
+		type	: "POST",
+		cache	: false,
+		url		: "checkout-1.php",
+		data	: $(this).serializeArray(),
+		success: function(data) {
+			$.fancybox(data);
+		}
+	});
+
+	return false;
+});
+});
+		
+</script>
+        
     </body>
 
 

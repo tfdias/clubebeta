@@ -1,10 +1,16 @@
-@media all and (min-width:1025px) {
+﻿@media all and (min-width:1025px) {
     .container{
         width: 970px;
         margin: 0 auto;
     }
+	
+.my-sticky-element.stuck {
+	position:fixed;
+	top:0;
+}
 
 }
+
 ul.inline li{
     padding:0;
 }
@@ -150,6 +156,10 @@ h5,
 .top-row {
     margin: 10px 0 10px 0;
 }
+
+.section-head {
+    border-bottom: 2px solid #E1E4D9;
+}
 .logo .text a span {
 
     font-weight: normal;
@@ -157,8 +167,11 @@ h5,
 .top-categories{
     border-top:1px solid #E2E4D9;
     padding: 10px;
-    margin-top: 4px;
+    margin-top: 0px;
     border-bottom: 4px solid #E1E4D9;
+	width:100%;
+	z-index:1001;
+	background-color:#FFF;
 }
 .top-categories ul li:first-child{
     margin-left: 0;
@@ -183,7 +196,7 @@ h5,
 }
 .top-categories ul li:hover:after,.top-categories ul li.active:after{
     background-color: #fff;
-    bottom: -24px;
+    bottom: -20px;
     box-shadow: 0 4px #E1E4D9;
     content: "";
     height: 20px;
@@ -302,10 +315,22 @@ h5,
     border:4px solid #FFBB00;
     z-index: 1000;
 }
-.products-holder .product-item .tag-line span{
+
+.tag-line span{
+    display: inline;
+    font-style: italic;
+}
+
+.tag-line div{
+    display: inline;
+    font-style: italic;
+}
+
+.products-holder .product-item span{
     display: block;
     font-style: italic;
 }
+
 .ie8 .products-holder .product-item .add-button{
     display: none;
 }
@@ -647,7 +672,7 @@ margin-right: auto!important;
     left: -15px;
 }
 .footer-links-holder ul li:before {
-    content: "ï”";
+    content: "-";
     font-size: 10px;
     position: absolute;
 
@@ -742,9 +767,9 @@ border-radius: 10px;
     border-left: 11px solid transparent;
     border-right: 11px solid transparent;
     content: "";
-    display: inline-block;
+    display: block;
     right: 65px;
-    position: absolute;
+    position: static;
     top: -11px;
 }
 .doviz-dropdown .dropdown-menu:before{
@@ -813,7 +838,7 @@ min-width: 70px!important;
 
 
     font-family: fontawesome;
-    content: "ï€";
+    content: "x";
     color:#D6D8CA;
     text-align: center;
     font-size: 11px;
@@ -933,7 +958,7 @@ min-width: 70px!important;
     top: -3px;
 }
 .accordion-widget .accordion-toggle:before{
-    content: "ïƒ";
+    content: "";
     font-size: 10px;
     font-family: fontawesome;
     z-index: 10;
